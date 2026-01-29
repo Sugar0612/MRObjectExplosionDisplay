@@ -2,28 +2,32 @@
 
 public class ExplosionPiece : MonoBehaviour
 {
-    public bool referOrigin = true;
-    public float distance = 5f;
+    public Transform Piece;
+    public Vector3 StartPoint;      // 局部坐标起点
+    public Vector3 EndPoint;        // 局部坐标终点
+    public float ExplosionDistance = 2.0f;  // 爆炸距离
 
-    public Transform Piece { private set; get; }
-    public Vector3 StartPoint { private set; get; }
-    public Vector3 EndPoint { private set; get; }
-
-    float lastTapTime = -1;
-
-    const float DOUBLE_TAP_TIME = .3f;
-
-    void Awake()
+    public void InitializeExplosionPoints()
     {
         Piece = transform;
-        StartPoint = transform.position;
-        EndPoint = referOrigin ? transform.localPosition.normalized * distance : transform.GetChild(0).position;
-    }
+        // 记录当前位置作为起点
+        StartPoint = Piece.localPosition;
 
-    private void OnMouseUpAsButton()
-    {
-        if (lastTapTime > 0 && Time.timeSinceLevelLoad - lastTapTime < DOUBLE_TAP_TIME)
-            ExplosionCamera.Instance.MoveCameraTo(transform);
-        lastTapTime = Time.timeSinceLevelLoad;
+        // 计算爆炸方向：从原点指向当前碎片位置（世界坐标）
+        Vector3 worldPosition = Piece.position;
+        Vector3 direction = (worldPosition - Vector3.zero).normalized;
+
+        // 计算终点（世界坐标）
+        Vector3 endWorldPos = worldPosition + direction * ExplosionDistance;
+
+        // 转换为局部坐标
+        if (transform.parent != null)
+        {
+            EndPoint = transform.parent.InverseTransformPoint(endWorldPos);
+        }
+        else
+        {
+            EndPoint = endWorldPos;  // 如果没有父物体，就是世界坐标
+        }
     }
 }

@@ -217,11 +217,11 @@ namespace Unity.XR.PXR
 #if PICO_OPENXR_SDK
 #else
             //version log
-            Debug.Log("PXRLog XR Platform----SDK Version:" + PXR_Plugin.System.UPxr_GetSDKVersion());
+            //Debug.Log("PXRLog XR Platform----SDK Version:" + PXR_Plugin.System.UPxr_GetSDKVersion());
 
             //log level
             int logLevel = PXR_Plugin.System.UPxr_GetConfigInt(ConfigType.UnityLogLevel);
-            Debug.Log("PXRLog XR Platform----SDK logLevel:" + logLevel);
+            //Debug.Log("PXRLog XR Platform----SDK logLevel:" + logLevel);
             PLog.logLevel = (PLog.LogLevel)logLevel;
             PXR_Plugin.System.UPxr_EnableEyeTracking(eyeTracking);
 
@@ -248,7 +248,7 @@ namespace Unity.XR.PXR
                 }
             }
 
-            Debug.LogFormat(TAG_MRC + "Awake openMRC = {0} ,MRCInitSucceed = {1}.", openMRC, initMRCSucceed);
+            //Debug.LogFormat(TAG_MRC + "Awake openMRC = {0} ,MRCInitSucceed = {1}.", openMRC, initMRCSucceed);
             PXR_Plugin.System.UPxr_LogSdkApi("pico_msaa|" + QualitySettings.antiAliasing.ToString());
 #endif
 
@@ -300,7 +300,7 @@ namespace Unity.XR.PXR
 
         private void OnApplicationQuit()
         {
-            Debug.LogFormat(TAG_MRC + "OnApplicationQuit openMRC = {0} ,MRCInitSucceed = {1}.", openMRC, initMRCSucceed);
+            //Debug.LogFormat(TAG_MRC + "OnApplicationQuit openMRC = {0} ,MRCInitSucceed = {1}.", openMRC, initMRCSucceed);
             if (openMRC && initMRCSucceed)
             {
                 PXR_Plugin.Render.UPxr_DestroyLayerByRender(LAYER_MRC);

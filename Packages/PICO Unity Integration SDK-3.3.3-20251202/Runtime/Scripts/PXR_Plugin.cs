@@ -3480,7 +3480,7 @@ namespace Unity.XR.PXR
 
             public static void UPxr_EnableEyeTracking(bool enable)
             {
-                Debug.Log(TAG + "UPxr_EnableEyeTracking() enable:" + enable);
+                //Debug.Log(TAG + "UPxr_EnableEyeTracking() enable:" + enable);
 #if UNITY_ANDROID && !UNITY_EDITOR
                 Pxr_EnableEyeTracking(enable);
 #endif
