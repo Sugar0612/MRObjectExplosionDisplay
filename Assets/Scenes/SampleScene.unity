@@ -272,7 +272,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2f6f39a86399ee145ad2c21c876b8246, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -588,16 +588,100 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393cc4e43b30e4b4ca70adde898b813a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayObject: {fileID: 0}
-  displayCollider: {fileID: 0}
   ActionsList:
-  - CommentaryMusic: {fileID: 0}
+  - CommentaryMusic: {fileID: 8300000, guid: d2885c52947b5b24b8e176210bb0cfdc, type: 3}
     Action:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 545475969}
+          m_TargetAssemblyTypeName: DisplayAction, Assembly-CSharp
+          m_MethodName: ShowDisplayObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     EndAction:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 545475969}
+          m_TargetAssemblyTypeName: DisplayAction, Assembly-CSharp
+          m_MethodName: EndAction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - CommentaryMusic: {fileID: 8300000, guid: 78e9d9c26f109204d9704ba1c4c589f8, type: 3}
+    Action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 545475969}
+          m_TargetAssemblyTypeName: DisplayAction, Assembly-CSharp
+          m_MethodName: ExplosionDisplayObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    EndAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 545475969}
+          m_TargetAssemblyTypeName: DisplayAction, Assembly-CSharp
+          m_MethodName: EndAction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - CommentaryMusic: {fileID: 8300000, guid: cd845cdc87b25e44d837bc74684c70f9, type: 3}
+    Action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 545475969}
+          m_TargetAssemblyTypeName: DisplayAction, Assembly-CSharp
+          m_MethodName: PlayDisplayObjectAnimation
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    EndAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 545475969}
+          m_TargetAssemblyTypeName: DisplayAction, Assembly-CSharp
+          m_MethodName: EndAction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!82 &545475970
 AudioSource:
   m_ObjectHideFlags: 0
@@ -790,6 +874,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1747474041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &982807961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 982807962}
+  - component: {fileID: 982807963}
+  m_Layer: 0
+  m_Name: "\u3010Audio\u3011"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &982807962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982807961}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.98066014, y: -1.1042558, z: 2.4520884}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &982807963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982807961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484d2c6e5263a564b96b899e12f1b2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1430163275
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,7 +972,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1731897643}
   - component: {fileID: 1731897644}
-  - component: {fileID: 1731897645}
   m_Layer: 0
   m_Name: DisplayList
   m_TagString: Untagged
@@ -878,18 +1005,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f08608ed2dc3ce94abaa3d0dc849437e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1731897645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731897642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a87c840d4b58f594680f62e9de1f14f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1735593983 stripped
@@ -2186,6 +2301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450651578290842}
   - component: {fileID: 919132147929253921}
+  - component: {fileID: 919132147929253922}
   m_Layer: 0
   m_Name: M_suanpan_anim
   m_TagString: Untagged
@@ -2208,6 +2324,27 @@ MonoBehaviour:
   isTrigger: 0
   castShadow: 0
   recieveShadow: 0
+--- !u!95 &919132147929253922
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147929253920}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab72eefe40e966d43b91a5cc3d91ef37, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &919689139818795796
 Transform:
   m_ObjectHideFlags: 0
@@ -13660,5 +13797,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 639824216}
+  - {fileID: 982807962}
   - {fileID: 1747474041}
   - {fileID: 4134505310330443975}

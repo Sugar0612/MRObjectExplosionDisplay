@@ -23,6 +23,12 @@ public class DisplayActionActuator : MonoBehaviour
 
     private IEnumerator ExcuteCoroutine(DisplayActionStruct displayNote)
     {
+        AudioManager.Get().Play(displayNote.CommentaryMusic);
+
         yield return null;
+
+        yield return new WaitUntil(() => AudioManager.Get().IsPlaying() == false);
+
+        displayNote.EndAction?.Invoke();
     }
 }
