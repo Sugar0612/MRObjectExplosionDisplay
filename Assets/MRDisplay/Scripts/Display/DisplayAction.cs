@@ -17,7 +17,7 @@ public class DisplayAction : MonoBehaviour
 
     private int currActionIndex = 0;
 
-    [SerializeField] private float displayHeight = 1.7f;
+    [SerializeField] private float displayHeight = 1.6f;
 
     private Tween rotateTween;
 
@@ -127,7 +127,7 @@ public class DisplayAction : MonoBehaviour
         rotateTween?.Kill();
         yield return null;
 
-        displayObject.transform.DORotate(Vector3.zero, 3.0f)
+        displayObject.transform.DORotate(new Vector3(0.0f, 180.0f, 0.0f), 3.0f)
             .SetEase(Ease.OutQuad)
             .OnComplete(() => 
             {
@@ -149,6 +149,7 @@ public class DisplayAction : MonoBehaviour
     /// </summary>
     public void Ending()
     {
+        displayAnimator.SetBool("isPlay", false);
         rotateTween = displayObject.transform.DORotate(new Vector3(0.0f, 360.0f, 0.0f), 7.0f, RotateMode.LocalAxisAdd)
             .SetLoops(-1, LoopType.Restart)
             .SetEase(Ease.Linear);

@@ -17,6 +17,6 @@ public class DisplayCollider : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        TriggerExitEvent?.Invoke(other);
+        //TriggerExitEvent?.Invoke(other);
     }
 }
