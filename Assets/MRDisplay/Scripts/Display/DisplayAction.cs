@@ -1,10 +1,11 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DisplayAction : MonoBehaviour
 {
-    private MeshColliderManager displayObject;
+    private DisplayObjectUnit displayObject;
 
     private DisplayCollider displayCollider;
 
@@ -16,9 +17,13 @@ public class DisplayAction : MonoBehaviour
 
     private int currActionIndex = 0;
 
+    [SerializeField] private float displayHeight = 1.7f;
+
+    private Tween rotateTween;
+
     private void Start()
     {
-        displayObject = GetComponentInChildren<MeshColliderManager>();
+        displayObject = GetComponentInChildren<DisplayObjectUnit>();
         displayCollider = GetComponentInChildren<DisplayCollider>();
         displayAudioSource = GetComponent<AudioSource>();
         displayAnimator = GetComponentInChildren<Animator>();
@@ -70,25 +75,83 @@ public class DisplayAction : MonoBehaviour
 
     private void ShutDownAction()
     {
-        currActionIndex = 0;
-        AudioManager.Get().UnLoad();
-        displayAnimator.SetBool("isPlay", false);
+        rotateTween?.Kill();
+
+        displayObject.transform.DORotate(Vector3.zero, 3.0f)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() =>
+            {
+                Vector3 displaylastPostion = displayObject.transform.position;
+                displayObject.transform.DOMove(new Vector3(displaylastPostion.x, 0.0f, displaylastPostion.z), 2.0f)
+                .OnComplete(() => 
+                {
+                    currActionIndex = 0;
+                    AudioManager.Get().UnLoad();
+                    displayAnimator.SetBool("isPlay", false);
+                    displayObject.gameObject.SetActive(false);
+                });
+            });
     }
 
+    /// <summary>
+    /// 开头部分
+    /// </summary>
     public void ShowDisplayObject()
     {
         displayObject.gameObject.SetActive(true);
+        StartCoroutine(DisplayActionCoroutine());
     }
 
+    private IEnumerator DisplayActionCoroutine()
+    {
+        Vector3 displaylastPostion = displayObject.transform.position;
+        displayObject.transform.DOMove(new Vector3(displaylastPostion.x, displayHeight, displaylastPostion.z), 2.0f);
+
+        yield return new WaitForSeconds(2.1f);
+
+        rotateTween = displayObject.transform.DORotate(new Vector3(0.0f, 360.0f, 0.0f), 7.0f, RotateMode.LocalAxisAdd)
+            .SetLoops(-1, LoopType.Restart)
+            .SetEase(Ease.Linear);
+    }
+
+    /// <summary>
+    /// 结构部分
+    /// </summary>
     public void ExplosionDisplayObject()
     {
-        ExplosionToolkit.Get().Load(displayObject.gameObject);
-        ExplosionToolkit.Get().Explosion();
+        StartCoroutine(ExplosionActionCoroutine());
     }
 
+    private IEnumerator ExplosionActionCoroutine()
+    {
+        rotateTween?.Kill();
+        yield return null;
+
+        displayObject.transform.DORotate(Vector3.zero, 3.0f)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() => 
+            {
+                ExplosionToolkit.Get().Load(displayObject.gameObject);
+                ExplosionToolkit.Get().Explosion();
+            });
+    }
+
+    /// <summary>
+    /// 算法部分
+    /// </summary>
     public void PlayDisplayObjectAnimation()
     {
         ExplosionToolkit.Get().Recovery(() => displayAnimator.SetBool("isPlay", true));
+    }
+
+    /// <summary>
+    /// 结尾部分
+    /// </summary>
+    public void Ending()
+    {
+        rotateTween = displayObject.transform.DORotate(new Vector3(0.0f, 360.0f, 0.0f), 7.0f, RotateMode.LocalAxisAdd)
+            .SetLoops(-1, LoopType.Restart)
+            .SetEase(Ease.Linear);
     }
 
     #endregion

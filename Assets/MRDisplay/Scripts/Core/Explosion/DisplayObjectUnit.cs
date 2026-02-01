@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
-public class MeshColliderManager : MonoBehaviour
+public class DisplayObjectUnit : MonoBehaviour
 {
     public bool isTrigger;
     public bool castShadow;
