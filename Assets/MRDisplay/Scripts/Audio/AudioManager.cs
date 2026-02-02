@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
 
     public void Play(AudioClip clip)
     {
+        if (audioSource == null) return;
         audioSource.clip = clip;
         audioSource?.Play();
     }
@@ -36,6 +37,7 @@ public class AudioManager : MonoBehaviour
 
     public bool IsPlaying()
     {
+        if (audioSource == null) return false;
         return audioSource.isPlaying;
     }
 }

@@ -92,7 +92,8 @@ public class ExplosionToolkit : MonoBehaviour
         explosionValue = 0.0f;
         explosionValue = startValue;
         float offset = startValue < endValue ? 0.01f : -0.01f;
-        while (explosionValue.ToString("F2") != endValue.ToString("F2"))
+        float noChanged = startValue - endValue;
+        while (noChanged * offset < 0.0f)
         {
             foreach (ExplosionPiece explosionPiece in ExplosionPieces)
             {
@@ -102,6 +103,7 @@ public class ExplosionToolkit : MonoBehaviour
                     explosionPiece.Piece.localPosition = Vector3.Lerp(explosionPiece.StartPoint, explosionPiece.EndPoint, explosionValue);
             }
             explosionValue += offset;
+            noChanged = explosionValue - endValue;
             yield return new WaitForSeconds(0.01f);
         }
 

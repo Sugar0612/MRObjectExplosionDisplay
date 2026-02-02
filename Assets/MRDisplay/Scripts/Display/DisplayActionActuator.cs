@@ -17,12 +17,13 @@ public class DisplayActionActuator : MonoBehaviour
 
     public void Execute(DisplayActionStruct displayNote)
     {
-        displayNote.Action?.Invoke();
         StartCoroutine(ExcuteCoroutine(displayNote));
     }
 
     private IEnumerator ExcuteCoroutine(DisplayActionStruct displayNote)
     {
+        displayNote.Action?.Invoke();
+
         AudioManager.Get().Play(displayNote.CommentaryMusic);
 
         yield return null;

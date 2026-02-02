@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,9 +18,26 @@ public class DisplayAction : MonoBehaviour
 
     private int currActionIndex = 0;
 
+    private int currPartsIndex = 0;
+
+    #region Display Object Action Params
+
     [SerializeField] private float displayHeight = 1.6f;
 
+    [SerializeField] private float explosionHeight = 1.6f;
+
+    [SerializeField] private Vector3 defaultRotation = Vector3.zero;
+
+    // ±¬Õ¨Í¼½×¶Îrotation
+    [SerializeField] private Vector3 explosionRotation = Vector3.zero;
+
+    [Serializable] private class DisplayObjectPartArray { [SerializeField] public List<DisplayObjectPart> groups = new List<DisplayObjectPart>(); }
+
+    [SerializeField] private List<DisplayObjectPartArray> parts = new List<DisplayObjectPartArray>();
+
     private Tween rotateTween;
+
+    #endregion
 
     private void Start()
     {
@@ -34,16 +52,21 @@ public class DisplayAction : MonoBehaviour
         displayObject.gameObject.SetActive(false);
     }
 
+    private void Update()
+    {
+        //if (Input.GetKeyDown(KeyCode.RightArrow))
+        //{
+        //    ActionsList[currActionIndex]?.EndAction?.Invoke();
+        //    //DisplayActionActuator.Get().Execute(ActionsList[currActionIndex]);
+        //}
+    }
+
     #region Collider Trigger Events
 
     private void StartDisplay(Collider other)
     {
         if (other.tag == "MainCamera")
         {
-            //displayObject.gameObject.SetActive(true);
-
-            //ExplosionToolkit.Get().Load(displayObject.gameObject);
-            //ExplosionToolkit.Get().Explosion();
             AudioManager.Get().Load(displayAudioSource);
             DisplayActionActuator.Get().Execute(ActionsList[currActionIndex]);
         }
@@ -109,8 +132,7 @@ public class DisplayAction : MonoBehaviour
 
         yield return new WaitForSeconds(2.1f);
 
-        rotateTween = displayObject.transform.DORotate(new Vector3(0.0f, 360.0f, 0.0f), 7.0f, RotateMode.LocalAxisAdd)
-            .SetLoops(-1, LoopType.Restart)
+        rotateTween = displayObject.transform.DORotate(defaultRotation, 7.0f)
             .SetEase(Ease.Linear);
     }
 
@@ -127,13 +149,47 @@ public class DisplayAction : MonoBehaviour
         rotateTween?.Kill();
         yield return null;
 
-        displayObject.transform.DORotate(new Vector3(0.0f, 180.0f, 0.0f), 3.0f)
-            .SetEase(Ease.OutQuad)
-            .OnComplete(() => 
+        Vector3 displaylastPostion = displayObject.transform.position;
+        displayObject.transform.DOMove(new Vector3(displaylastPostion.x, explosionHeight, displaylastPostion.z), 1.0f)
+            .OnComplete(() =>
             {
-                ExplosionToolkit.Get().Load(displayObject.gameObject);
-                ExplosionToolkit.Get().Explosion();
+                displayObject.transform.DORotate(explosionRotation, 2.0f)
+                    .SetEase(Ease.OutQuad)
+                    .OnComplete(() =>
+                    {
+                        Action showDisplayPart = () => ShowDisplayObjectPart();
+                        ExplosionToolkit.Get().Load(displayObject.gameObject);
+                        ExplosionToolkit.Get().Explosion(showDisplayPart);
+                    });
             });
+    }
+
+    public void ExplosionEndAction()
+    {
+        //Debug.Log("ExplosionEndAction...");
+        StartCoroutine(ExplosionEndActionCoroutine());
+    }
+
+    private IEnumerator ExplosionEndActionCoroutine()
+    {
+        displayObject.transform.DORotate(defaultRotation, 1.5f)
+           .SetEase(Ease.OutQuad)
+           .OnComplete(() =>
+           {
+               ExplosionToolkit.Get().Recovery();
+           });
+
+        yield return new WaitForSeconds(4.0f);
+
+        //Debug.Log("next action...");
+        currActionIndex++;
+        if (currActionIndex >= ActionsList.Count)
+        {
+            ShutDownAction();
+            yield break;
+        }
+
+        DisplayActionActuator.Get().Execute(ActionsList[currActionIndex]);
     }
 
     /// <summary>
@@ -141,7 +197,7 @@ public class DisplayAction : MonoBehaviour
     /// </summary>
     public void PlayDisplayObjectAnimation()
     {
-        ExplosionToolkit.Get().Recovery(() => displayAnimator.SetBool("isPlay", true));
+        displayAnimator.SetBool("isPlay", true);
     }
 
     /// <summary>
@@ -156,4 +212,24 @@ public class DisplayAction : MonoBehaviour
     }
 
     #endregion
+
+    public void ShowDisplayObjectPart()
+    {
+        if (currPartsIndex >= parts.Count) return;
+
+        for (int i = 0; i < parts[currPartsIndex].groups.Count; i++)
+        {
+            //Debug.Log($"groups index: {i}");
+            int idx = i;
+            parts[currPartsIndex].groups[i].AutoDisplay(() =>
+            {
+                //Debug.Log($"idx: {idx}");
+                if (idx == 0)
+                {
+                    currPartsIndex++;
+                    ShowDisplayObjectPart();
+                }
+            });
+        }
+    }
 }
