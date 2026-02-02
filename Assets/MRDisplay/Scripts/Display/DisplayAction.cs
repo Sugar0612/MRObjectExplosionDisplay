@@ -14,11 +14,17 @@ public class DisplayAction : MonoBehaviour
 
     private Animator displayAnimator;
 
+    private DisplayGUI displayGUI;
+
     public List<DisplayActionStruct> ActionsList = new List<DisplayActionStruct>();
+
+    public List<DisplayGUIStruct> GUIList = new List<DisplayGUIStruct>();
 
     private int currActionIndex = 0;
 
     private int currPartsIndex = 0;
+
+    private int currGUIIndex = 0;
 
     #region Display Object Action Params
 
@@ -44,7 +50,9 @@ public class DisplayAction : MonoBehaviour
         displayObject = GetComponentInChildren<DisplayObjectUnit>();
         displayCollider = GetComponentInChildren<DisplayCollider>();
         displayAudioSource = GetComponent<AudioSource>();
+        displayGUI = GetComponentInChildren<DisplayGUI>();
         displayAnimator = GetComponentInChildren<Animator>();
+        displayAnimator.enabled = false;
 
         displayCollider.TriggerEnterEvent += StartDisplay;
         displayCollider.TriggerExitEvent += ExitDisplay;
@@ -109,9 +117,13 @@ public class DisplayAction : MonoBehaviour
                 .OnComplete(() => 
                 {
                     currActionIndex = 0;
+                    currPartsIndex = 0;
                     AudioManager.Get().UnLoad();
+                    ExplosionToolkit.Get().ResetExplosionToolkit();
                     displayAnimator.SetBool("isPlay", false);
+                    displayAnimator.enabled = false;
                     displayObject.gameObject.SetActive(false);
+                    displayCollider.ActionState_ = DisplayCollider.ActionState.Wait;
                 });
             });
     }
@@ -133,7 +145,11 @@ public class DisplayAction : MonoBehaviour
         yield return new WaitForSeconds(2.1f);
 
         rotateTween = displayObject.transform.DORotate(defaultRotation, 7.0f)
-            .SetEase(Ease.Linear);
+            .SetEase(Ease.Linear)
+            .OnComplete(() => 
+            {
+                displayGUI.AutoFadeInAndOut(GetGUIData());
+            });
     }
 
     /// <summary>
@@ -197,6 +213,8 @@ public class DisplayAction : MonoBehaviour
     /// </summary>
     public void PlayDisplayObjectAnimation()
     {
+        displayGUI.AutoFadeInAndOut(GetGUIData());
+        displayAnimator.enabled = true;
         displayAnimator.SetBool("isPlay", true);
     }
 
@@ -205,18 +223,23 @@ public class DisplayAction : MonoBehaviour
     /// </summary>
     public void Ending()
     {
-        displayAnimator.SetBool("isPlay", false);
-        rotateTween = displayObject.transform.DORotate(new Vector3(0.0f, 360.0f, 0.0f), 7.0f, RotateMode.LocalAxisAdd)
-            .SetLoops(-1, LoopType.Restart)
+        //displayAnimator.SetBool("isPlay", false);
+        displayGUI.AutoFadeInAndOut(GetGUIData());
+        rotateTween = displayObject.transform.DORotate(new Vector3(0.0f, 360.0f, 0.0f), 3.0f, RotateMode.LocalAxisAdd)
             .SetEase(Ease.Linear);
     }
 
     #endregion
 
+
+    /// <summary>
+    /// 部件展示
+    /// </summary>
     public void ShowDisplayObjectPart()
     {
         if (currPartsIndex >= parts.Count) return;
 
+        displayGUI.AutoFadeInAndOut(GetGUIData());
         for (int i = 0; i < parts[currPartsIndex].groups.Count; i++)
         {
             //Debug.Log($"groups index: {i}");
@@ -231,5 +254,11 @@ public class DisplayAction : MonoBehaviour
                 }
             });
         }
+    }
+
+    public DisplayGUIStruct GetGUIData()
+    {
+        if (currGUIIndex >= GUIList.Count) return null;
+        return GUIList[currGUIIndex++];
     }
 }

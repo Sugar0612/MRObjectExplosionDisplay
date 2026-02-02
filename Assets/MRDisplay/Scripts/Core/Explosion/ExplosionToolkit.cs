@@ -46,6 +46,12 @@ public class ExplosionToolkit : MonoBehaviour
         Recovery(unloadAction);
     }
 
+    public void ResetExplosionToolkit()
+    {
+        ExplosionParent = null;
+        isLoaded = false;
+    }
+
     private void Initialized()
     {
         Vector3 parentWorldPos = ExplosionParent.position;
@@ -95,6 +101,7 @@ public class ExplosionToolkit : MonoBehaviour
         float noChanged = startValue - endValue;
         while (noChanged * offset < 0.0f)
         {
+            Debug.Log("ExplosionPieceCoroutine...");
             foreach (ExplosionPiece explosionPiece in ExplosionPieces)
             {
                 if (UseUnclampedExplosion)
@@ -105,6 +112,8 @@ public class ExplosionToolkit : MonoBehaviour
             explosionValue += offset;
             noChanged = explosionValue - endValue;
             yield return new WaitForSeconds(0.01f);
+
+            if (isLoaded == false) yield break;
         }
 
         yield return new WaitForSeconds(0.5f);
