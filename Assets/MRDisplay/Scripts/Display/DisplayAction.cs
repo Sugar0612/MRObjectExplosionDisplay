@@ -188,6 +188,8 @@ public class DisplayAction : MonoBehaviour
 
     private IEnumerator ExplosionEndActionCoroutine()
     {
+        Vector3 displaylastPostion = displayObject.transform.position;
+        displayObject.transform.DOMove(new Vector3(displaylastPostion.x, displayHeight, displaylastPostion.z), 1.5f);
         displayObject.transform.DORotate(defaultRotation, 1.5f)
            .SetEase(Ease.OutQuad)
            .OnComplete(() =>
@@ -230,7 +232,6 @@ public class DisplayAction : MonoBehaviour
     }
 
     #endregion
-
 
     /// <summary>
     /// 部件展示

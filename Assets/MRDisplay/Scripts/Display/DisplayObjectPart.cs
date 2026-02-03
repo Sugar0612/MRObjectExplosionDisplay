@@ -25,7 +25,12 @@ public class DisplayObjectPart : MonoBehaviour
             .OnComplete(() => 
             {
                 transform.DOLocalRotate(displayRotation, 1.0f)
-                    .SetEase(Ease.OutQuad);
+                    .SetEase(Ease.OutQuad)
+                    .OnComplete(() => 
+                    {
+                        transform.DORotate(new Vector3(360.0f, 360.0f, 360.0f), 8.0f, RotateMode.LocalAxisAdd)
+                            .SetEase(Ease.Linear);
+                    });
             });
     }
 

@@ -12,7 +12,7 @@ public class DisplayGUIStruct
 
     [SerializeField] public string Explain;
 
-    [SerializeField] public int Duration;
+    [SerializeField] public float Duration;
 }
 
 public class DisplayGUI : MonoBehaviour
@@ -39,7 +39,7 @@ public class DisplayGUI : MonoBehaviour
     /// œ‘ æ
     /// </summary>
     public void FadeIn()
-    {
+    {   
         titleText.DOFade(1.0f, 0.5f).SetEase(Ease.InOutSine);
         explainText.DOFade(1.0f, 0.5f).SetEase(Ease.InOutSine);
     }

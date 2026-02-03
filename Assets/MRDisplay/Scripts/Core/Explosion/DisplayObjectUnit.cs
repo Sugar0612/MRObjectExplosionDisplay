@@ -12,6 +12,8 @@ public class DisplayObjectUnit : MonoBehaviour
 
     List<MeshRenderer> renderers = new List<MeshRenderer>();
 
+    private AudioSource abacusSource;
+
     void Awake()
     {
         GetComponentsInChildren(renderers);
@@ -23,6 +25,27 @@ public class DisplayObjectUnit : MonoBehaviour
             meshCollider.isTrigger = isTrigger;
             renderer.receiveShadows = recieveShadow;
             renderer.shadowCastingMode = castShadow ? UnityEngine.Rendering.ShadowCastingMode.On : UnityEngine.Rendering.ShadowCastingMode.Off;
+        }
+    }
+
+    private void Start()
+    {
+        abacusSource = GetComponentInChildren<AudioSource>();
+    }
+
+    public void PlayAbacusSound()
+    {
+        if (abacusSource != null)
+        {
+            abacusSource.Play();
+        }
+    }
+
+    public void StopAbacusSound()
+    {
+        if (abacusSource != null)
+        {
+            abacusSource.Stop();
         }
     }
 }

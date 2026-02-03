@@ -653,7 +653,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - CommentaryMusic: {fileID: 8300000, guid: faf53b5841ca7224d8ea6d299061feb3, type: 3}
+  - CommentaryMusic: {fileID: 8300000, guid: 26ba15e3f9df8fa48b4a09510e966f3c, type: 3}
     Action:
       m_PersistentCalls:
         m_Calls:
@@ -724,10 +724,10 @@ MonoBehaviour:
     Duration: 14
   - Title: "\u6A2A\u6881"
     Explain: "\u6A2A\u6881\u53C8\u79F0\u4E2D\u6881\uFF0C\u6A2A\u5411\u8D2F\u7A7F\u4FA7\u6846\uFF0C\u662F\u5206\u9694\u4E0A\u4E0B\u7B97\u73E0\u7684\u57FA\u51C6\uFF0C\u8868\u9762\u5D4C\u94DC\u4E1D\u6216\u523B\u51F9\u69FD\u5212\u5206\u8BA1\u6570\u533A\u57DF\uFF0C\u4F5C\u4E3A\u201C\u4E94\u5347\u5341\u8FDB\u5236\u201D\u7684\u89C6\u89C9\u6838\u5FC3\uFF0C\u662F\u7B97\u73E0\u6570\u503C\u5B9A\u4F4D\u3001\u5B9E\u73B0\u7CBE\u51C6\u8BA1\u7B97\u7684\u5173\u952E\u3002"
-    Duration: 13
+    Duration: 12.5
   - Title: "\u6863\u6746"
     Explain: "\u6863\u6746\u7EB5\u5411\u5747\u5300\u5206\u5E03\uFF0C\u517113\u6863\u53EF\u5904\u740613\u4F4D\u6570\u5B57\u8BA1\u7B97\uFF0C\u591A\u4E3A\u7AF9\u3001\u94DC\u6216\u786C\u6728\u6750\u8D28\uFF0C\u76F4\u5F84\u7CBE\u51C6\u6253\u78E8\u4E0E\u7B97\u73E0\u5B54\u5F84\u5339\u914D\uFF0C\u8BA9\u7B97\u73E0\u6ED1\u52A8\u987A\u7545\u4E14\u4E0D\u6643\u52A8\u8131\u843D\uFF0C\u662F\u627F\u73E0\u5206\u6863\u7684\u6838\u5FC3\u3002"
-    Duration: 13
+    Duration: 12.5
   - Title: "\u7B97\u73E0"
     Explain: "\u7B97\u73E0\u4E3A\u6838\u5FC3\u529F\u80FD\u90E8\u4EF6\uFF0C\u5206\u53CC\u4E0A\u73E0\u3001\u4E94\u4E0B\u73E0\uFF0C\u4E0A\u73E0\u4EE35\u3001\u4E0B\u73E0\u4EE31\u3002"
     Duration: 28
@@ -736,12 +736,12 @@ MonoBehaviour:
     Duration: 13
   - Title: "\u7B97\u672F"
     Explain: "\u4E00\u4E0A\u4E00\t\u4E00\u4E0B\u4E94\u53BB\u56DB\t\u4E00\u53BB\u4E5D\u8FDB\u4E00\t"
-    Duration: 2
+    Duration: 4.5
   - Title: "\u603B\u7ED3"
-    Explain: "\u5B83\u662F\u975E\u9057\u6587\u5316\u7684\u9C9C\u6D3B\u7B26\u53F7\uFF0C\u662F\u5320\u4EBA\u7CBE\u795E\u7684\u5177\u8C61\u8868\u8FBE\uFF0C\u66F4\u662F\u4E2D\u56FD\u4EBA\u4E25\u8C28\u52A1\u5B9E\u3001\u7CBE\u6253\u7EC6\u7B97\u7684\u6587\u5316\u56FE\u817E\u3002"
-    Duration: 20
-  displayHeight: 1.7
-  explosionHeight: 1.4
+    Explain: "\u5982\u4ECA\uFF0C\u8BA1\u7B97\u5668\u4E0E\u667A\u80FD\u8BBE\u5907\u65E9\u5DF2\u666E\u53CA\uFF0C\u4F46\u7B97\u76D8\u5E76\u6CA1\u6709\u56E0\u6B64\u892A\u8272\u3002\u5B83\u662F\u975E\u9057\u6587\u5316\u7684\u9C9C\u6D3B\u7B26\u53F7\uFF0C\u662F\u5320\u4EBA\u7CBE\u795E\u7684\u5177\u8C61\u8868\u8FBE\uFF0C\u66F4\u662F\u4E2D\u56FD\u4EBA\u4E25\u8C28\u52A1\u5B9E\u3001\u7CBE\u6253\u7EC6\u7B97\u7684\u6587\u5316\u56FE\u817E\u3002\u5F53\u6211\u4EEC\u7684\u6307\u5C16\u518D\u6B21\u62E8\u52A8\u7B97\u73E0\uFF0C\u542C\u89C1\u7684\u4E0D\u4EC5\u662F\u73E0\u7389\u76F8\u51FB\u7684\u6E05\u8106\u58F0\u54CD\uFF0C\u66F4\u662F\u53E4\u4ECA\u667A\u6167\u7684\u5BF9\u8BDD\u5171\u9E23\u3002\u8FD9\u628A\u7B97\u76D8\u627F\u8F7D\u7684\uFF0C\u65E2\u662F\u4E00\u6BB5\u5173\u4E8E\u53D1\u660E\u4E0E\u4F20\u627F\u7684\u5386\u53F2\uFF0C\u66F4\u662F\u4E00\u4EFD\u503C\u5F97\u6C38\u8FDC\u73CD\u89C6\u7684\u6587\u5316\u8BB0\u5FC6\u3002\u5B83\u5C06\u7EE7\u7EED\u5728\u65F6\u5149\u4E2D\u6D41\u8F6C\uFF0C\u8BA9\u4F20\u7EDF\u667A\u6167\u7115\u53D1\u6301\u4E45\u7684\u751F\u547D\u529B\u3002"
+    Duration: 34
+  displayHeight: 1.5
+  explosionHeight: 1
   defaultRotation: {x: 0, y: 180, z: 0}
   explosionRotation: {x: -40, y: 180, z: 0}
   parts:
@@ -926,18 +926,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727966055}
-  m_LocalRotation: {x: 0, y: 0.30070576, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 0, z: 1.37}
+  m_LocalRotation: {x: 0, y: 0.17364816, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: 0, y: 0, z: 1.308}
   m_LocalScale: {x: 0.0032, y: 0.0032, z: 0.0032}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1874692178}
   - {fileID: 1357123925}
   m_Father: {fileID: 545475968}
-  m_LocalEulerAnglesHint: {x: 0, y: 35, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 20, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.32, y: 1.662}
+  m_AnchoredPosition: {x: 0.699, y: 1.5}
   m_SizeDelta: {x: 1335, y: 501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &727966057
@@ -1144,7 +1144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 305, y: -15}
+  m_AnchoredPosition: {x: 259.4, y: 11.1}
   m_SizeDelta: {x: 398.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1357123926
@@ -7934,8 +7934,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55b7c6cdba5e6c41a69f4c7206920bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayRotation: {x: 0, y: 0, z: 0}
-  displayPosition: {x: 0, y: -0.0928, z: 0.13}
+  displayRotation: {x: 38.84, y: -12.857, z: -11.016}
+  displayPosition: {x: 0, y: 0.111, z: 0.302}
   originalRotation: {x: 0, y: 0, z: 0}
   originalPosition: {x: 0, y: -0.0928, z: 0.003250003}
   duration: 29
@@ -8423,7 +8423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayRotation: {x: 0, y: 0, z: 0}
-  displayPosition: {x: 0, y: 0.0142, z: 0.1245}
+  displayPosition: {x: 0, y: 0.16, z: 0.141}
   originalRotation: {x: 0, y: 0, z: 0}
   originalPosition: {x: 0, y: 0.2281442, z: -0.003780751}
   duration: 13
@@ -9515,7 +9515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayRotation: {x: 30, y: 0, z: -90}
-  displayPosition: {x: 0, y: -0.03, z: 0.1385}
+  displayPosition: {x: 0, y: 0.093, z: 0.396}
   originalRotation: {x: 0, y: 0, z: 0}
   originalPosition: {x: -0.4258854, y: -0.000000008911385, z: -0.0009344146}
   duration: 16
@@ -10815,8 +10815,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55b7c6cdba5e6c41a69f4c7206920bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayRotation: {x: 0, y: 0, z: 0}
-  displayPosition: {x: 0.00000005959011, y: -0.00000001907349, z: 0.2}
+  displayRotation: {x: 40, y: 0, z: -90}
+  displayPosition: {x: 0.0202, y: 0.181, z: 0.23}
   originalRotation: {x: 0, y: 0, z: 0}
   originalPosition: {x: 0.00000005959011, y: -0.00000001907349, z: 0.003250003}
   duration: 14
@@ -12154,8 +12154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55b7c6cdba5e6c41a69f4c7206920bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayRotation: {x: 0, y: 0, z: 0}
-  displayPosition: {x: 0, y: 0.0925, z: 0.13}
+  displayRotation: {x: 36.692, y: -12.821, z: -10.492}
+  displayPosition: {x: 0, y: 0.163, z: 0.346}
   originalRotation: {x: 0, y: 0, z: 0}
   originalPosition: {x: 0, y: 0.0925, z: 0.003250003}
   duration: 29
@@ -12178,6 +12178,7 @@ GameObject:
   - component: {fileID: 8655860253349203476}
   - component: {fileID: 8655860253349203477}
   - component: {fileID: 8655860253349203478}
+  - component: {fileID: 8655860253349203479}
   m_Layer: 0
   m_Name: AS_suanpan_koujue
   m_TagString: Untagged
@@ -13136,6 +13137,102 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &8655860253349203479
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310297615153304750}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b8bf5b3ad14089a41983a70a14ccfb10, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &8669918038946814026
 Transform:
   m_ObjectHideFlags: 0
@@ -13228,7 +13325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayRotation: {x: 0, y: 0, z: 0}
-  displayPosition: {x: 0, y: -0.014, z: 0.097}
+  displayPosition: {x: 0, y: 0.1525, z: 0.2367}
   originalRotation: {x: 0, y: 0, z: 0}
   originalPosition: {x: 0, y: -0.2059511, z: -0.0009718832}
   duration: 15
